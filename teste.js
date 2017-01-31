@@ -90,7 +90,7 @@ $(document).ready(function () {
     function listaContatos() {
         $.ajax({
             type: "POST",
-            url: "listacontatos.php",
+            url: "listaestados.php",
             cache: false,
             success: function (retorno) {
                 $("#lista").html(retorno);

@@ -87,7 +87,7 @@ $(document).ready(function () {
             url: "listaestados.php",
             cache: false,
             success: function (retorno) {
-                $("#lista").html(retorno);
+                $("#listaestados").html(retorno);
             }
         });
     }

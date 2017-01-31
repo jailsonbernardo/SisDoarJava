@@ -1,187 +1,111 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html lang="pt-br">
+<html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-
-        <title>Mini cadastro de Ccontatos</title>
-
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <script src="js/jquery.js"></script>
-
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/livequery.js"></script>
-        <style>
-            .container {
-                margin-top: 50px;
-            }
-        </style>
-        <script>
-            $(document).ready(function () {
-                // FUNCAO CHAMAR MODAL ADD
-                $('#addContato').click(function () {
-                    $('#modalContato').modal('show');
-                });
-
-                $('#salvar').click(function () {
-                    var id = $("#id").val();
-                    var nome = $("#nome").val();
-                    var email = $("#email").val();
-                    var dataString = {id: id, nome: nome, email: email};
-                    $.ajax({
-                        type: "POST",
-                        url: "salvarcontatos.php",
-                        data: dataString,
-                        cache: false,
-                        success: function (retorno) {
-                            if (retorno == true) {
-                                listaContatos();
-                                $('#modalContato').modal('hide');
-                            } else {
-                                alert("Ocorreu um erro ao salvar o registro.");
-                            }
-                        }
-                    });
-                });
-
-                $('a#editar').livequery("click", function () {
-                    var id = $(this).attr('rel');
-                    var dataString = {id: id};
-                    $.ajax({
-                        type: "POST",
-                        url: "buscarcontato.php",
-                        data: dataString,
-                        cache: false,
-                        success: function (retorno) {
-                            retorno = JSON.parse(retorno);
-                            console.log(retorno);
-                            $("#id").val(retorno.id);
-                            $("#nome").val(retorno.nome);
-                            $("#email").val(retorno.email);
-                            $('#modalContato').modal('show');
-                        }
-                    });
-                    return false;
-                });
-
-                $('a#detalhes').livequery("click", function () {
-                    var id = $(this).attr('rel');
-                    var dataString = {id: id};
-                    $.ajax({
-                        type: "POST",
-                        url: "buscarcontato.php",
-                        data: dataString,
-                        cache: false,
-                        success: function (retorno) {
-                            retorno = JSON.parse(retorno);
-                            $('#det').html('<label for="id">ID: </label>' + retorno.id + '<br><label for="nome">Nome: </label>' + retorno.nome + '<br><label for="email">Email: </label>' + retorno.email);
-                            $('#modalDetalhes').modal('show');
-                        }
-                    });
-                    return false;
-                });
-
-                $('a#excluir').livequery("click", function () {
-                    var id = $(this).attr('rel');
-                    var dataString = {id: id};
-                    $.ajax({
-                        type: "POST",
-                        url: "excluircontato.php",
-                        data: dataString,
-                        cache: false,
-                        success: function (retorno) {
-                            if (retorno == true) {
-                                listaContatos();
-                            } else {
-                                alert("Ocorreu um erro ao excluir o registro.");
-                            }
-                        }
-                    });
-                    return false;
-                });
-
-                function listaContatos() {
-                    $.ajax({
-                        type: "POST",
-                        url: "listacontatos.php",
-                        cache: false,
-                        success: function (retorno) {
-                            $("#lista").html(retorno);
-                        }
-                    });
-                }
-
-
-
-                listaContatos();
-
-            });
-        </script>
+        <title>..::data e hora::..</title>
     </head>
-
     <body>
 
-        <div class="container">
-            <button type='button' class='btn btn-success' id='addContato'>Novo</button>
-            <div id="lista"></div>
-        </div><!-- /.container -->
+        <SCRIPT LANGUAGE="JAVASCRIPT">
+        <!--
 
-        <!-- modal cadastro e edição -->
-        <div class="modal fade bs-example-modal-lg" id="modalContato" >
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
-                        <h4 class="modal-title">Cadastro Contato</h4>
-                    </div>
-                    <div class="modal-body">
+            var now = new Date();
+            var mName = now.getMonth() + 1;
+            var dName = now.getDay() + 1;
+            var dayNr = now.getDate();
+            var yearNr = now.getYear();
+            if (dName == 1) {
+                Day = "Domingo";
+            }
+            if (dName == 2) {
+                Day = "Segunda-feira";
+            }
+            if (dName == 3) {
+                Day = "Terça-feira";
+            }
+            if (dName == 4) {
+                Day = "Quarta-feira";
+            }
+            if (dName == 5) {
+                Day = "Quinta-feira";
+            }
+            if (dName == 6) {
+                Day = "Sexta-feira";
+            }
+            if (dName == 7) {
+                Day = "Sábado";
+            }
+            if (mName == 1) {
+                Month = "Janeiro";
+            }
+            if (mName == 2) {
+                Month = "Fevereiro";
+            }
+            if (mName == 3) {
+                Month = "Março";
+            }
+            if (mName == 4) {
+                Month = "Abril";
+            }
+            if (mName == 5) {
+                Month = "Maio";
+            }
+            if (mName == 6) {
+                Month = "Junho";
+            }
+            if (mName == 7) {
+                Month = "Julho";
+            }
+            if (mName == 8) {
+                Month = "Agosto";
+            }
+            if (mName == 9) {
+                Month = "Setembro";
+            }
+            if (mName == 10) {
+                Month = "Outubro";
+            }
+            if (mName == 11) {
+                Month = "Novembro";
+            }
+            if (mName == 12) {
+                Month = "Dezembro";
+            }
+            if (yearNr < 2000) {
+                Year = 1900 + yearNr;
+            } else {
+                Year = yearNr;
+            }
+            var todaysDate = (" " + Day + ", " + dayNr + "/" + Month + "/" + Year);
 
-                        <form role="form" method="post" id="formulario_clientes">
-                            <div class="form-group">
-                                <label for="nome">Nome</label>
-                                <input type="text" class="form-control" id="nome" name="nome">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">E-mail</label>
-                                <input type="email" class="form-control" id="email" name="email">
-                            </div>
-                            <input type="hidden" name="id" id="id" value="0" />
-                        </form>	    
+            document.write('  ' + todaysDate);
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                        <button type="button" id="salvar" class="btn btn-primary">Salvar</button>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->  
-        <!-- modal detalhes -->
-        <div class="modal fade bs-example-modal-lg" id="modalDetalhes" >
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
-                        <h4 class="modal-title">Detalhes Contato</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div id="det"></div>            
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->  
+        //-->
+        </SCRIPT>
+
+
+        <SPAN ID="Clock">00:00:00</SPAN>
+
+        <SCRIPT LANGUAGE="JavaScript">
+        <!--
+            var Elem = document.getElementById("Clock");
+            function Horario() {
+                var Hoje = new Date();
+                var Horas = Hoje.getHours();
+                if (Horas < 10) {
+                    Horas = "0" + Horas;
+                }
+                var Minutos = Hoje.getMinutes();
+                if (Minutos < 10) {
+                    Minutos = "0" + Minutos;
+                }
+                var Segundos = Hoje.getSeconds();
+                if (Segundos < 10) {
+                    Segundos = "0" + Segundos;
+                }
+                Elem.innerHTML = Horas + ":" + Minutos + ":" + Segundos;
+            }
+            window.setInterval("Horario()", 1000);
+        //-->
+        </SCRIPT>
 
     </body>
 </html>

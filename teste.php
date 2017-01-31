@@ -9,7 +9,7 @@
         <title>Doe + Vida - Página Incial</title>
         <link rel="icon" type="image/png"  href="img/apple-touch-icon.png" />
 
-        <script src="teste.js"></script>
+
     </head>
 
     <body>
@@ -25,28 +25,29 @@
                 <h3 class="text-center">Cidades Cadastradas</h3>
             </div>
 
-                    <div class="panel panel-info">    
-                        <div class="panel-heading">
-                            <div class="row">  
-                                <div class="col-lg-3 ">
-                                    Cidades Cadastradas
-                                </div>
-                                <div class="col-lg-offset-8 col-lg-1">
-                                    <a href="cadastro-cidade.jsp" class="btn btn-info"> <i class="glyphicon glyphicon-plus "></i></a>    
-                                </div>
-                            </div>
+            <div class="panel panel-info">    
+                <div class="panel-heading">
+                    <div class="row">  
+                        <div class="col-lg-3 ">
+                            Cidades Cadastradas
                         </div>
-                        <div class="table-responsive">
-                            <div class="panel-body ">
-                                <div id="lista"></div>
-                            </div>
-                            <div class="panel-footer"></div>
+                        <div class="col-lg-offset-8 col-lg-1">
+                            <a href="cadastro-cidade.jsp" class="btn btn-info"> <i class="glyphicon glyphicon-plus "></i></a>    
                         </div>
                     </div>
                 </div>
+                <div class="table-responsive">
+                    <div class="panel-body ">
+                        <div id="lista"></div>
+                    </div>
+                    <div class="panel-footer"></div>
+                </div>
             </div>
-            <?php
-            include './rodape.php';
-            ?>
-    </body>
+        </div>
+    </div>
+    <?php
+    include './rodape.php';
+    ?>
+    <script src="teste.js"></script>
+</body>
 </html>
