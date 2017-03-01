@@ -10,7 +10,7 @@ function __autoload($class_name) {
         <meta charset="UTF-8">
         <title></title>
     </head>
-    <body>
+    <body >
 
         <?php
         //CABEÇALHO
@@ -19,23 +19,9 @@ function __autoload($class_name) {
         <?php
         $estado = new Estados();
         ?>
-        <div class="row">
-            <div class="col-lg-3">   
 
-            </div>
-            <div class="col-lg-9">
-
-            </div>
-        </div>
         <!--==================CABEÇALHO====================---->
         <div class="container theme-showcase" role="main">
-            <div class="sidebar" data-example-id="simple-nav-stacked">
-                <ul class="nav nav-pills nav-stacked nav-pills-stacked-example">
-                    <li role="presentation" class="active"><a href="#">Home</a></li>
-                    <li role="presentation"><a href="#">Profile</a></li>
-                    <li role="presentation"><a href="#">Messages</a></li>
-                </ul>
-            </div>  
             <!-- /.container -->
             <div class="container">
                 <div class="row">
@@ -65,7 +51,7 @@ function __autoload($class_name) {
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <table width="100%" class="table table-striped table-bordered table-hover" id="example2">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -79,14 +65,14 @@ function __autoload($class_name) {
                                 <tbody>
                                     <?php foreach ($estado->findAll() as $key => $value): ?>
                                         <tr>
-                                            <td><?php echo $value->id; ?></td>
+                                            <td><?php echo $value->idestado; ?></td>
                                             <td><?php echo $value->nome; ?></td>
                                             <td><?php echo $value->uf; ?></td>
                                             <td>
-                                                <?php echo "<a class='btn btn-info' href='cadastrar_estado.php?acao=editar&id=" . $value->id . "'><i class='glyphicon glyphicon-edit'></i></a>"; ?>
+                                                <?php echo "<a class='btn btn-info' href='cadastrar_estado.php?acao=editar&id=" . $value->idestado . "'><i class='glyphicon glyphicon-edit'></i></a>"; ?>
                                             </td>
                                             <td>
-                                                <?php echo "<a  class='btn btn-danger' href='lista_estados.php?acao=deletar&id=" . $value->id . "' onclick='return confirm(\"Deseja realmente deletar?\")'><b class='glyphicon glyphicon-remove'></b</a>"; ?>
+                                                <?php echo "<a  class='btn btn-danger' href='lista_estados.php?acao=deletar&id=" . $value->idestado . "' onclick='return confirm(\"Deseja realmente deletar?\")'><b class='glyphicon glyphicon-remove'></b</a>"; ?>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -104,19 +90,26 @@ function __autoload($class_name) {
             </div>
             <!-- /.row -->
         </div>
-    </div>
 
-    <script>
-        $(document).ready(function () {
-            $('#dataTables-example').DataTable({
-                responsive: true, language: pt-br;
+        <script>
+            $(function () {
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": true,
+                    "searching": true,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": true,
+                    "language": {
+                        "url": "assets/datatables/portuguese-brasil.json"
+                    }
+                });
             });
-        });
-    </script>
-    <?php
-    include './rodape.php';
-    ?>
-    <!--==================RODAPE====================---->
-    <script src="funcoes/estado/funcoesestado.js"></script>
-</body>
+        </script>
+        <?php
+        include './rodape.php';
+        ?>
+        <!--==================RODAPE====================---->
+        <script src="funcoes/estado/funcoesestado.js"></script>
+    </body>
 </html>
