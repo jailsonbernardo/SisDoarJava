@@ -10,7 +10,7 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-        <footer class="footer container-fluid"> 
+        <footer class="footer container"> 
             <p class="text-center">Sistema de Doação de Sangue Web SISDOAR</p>
             <p class="text-center">Web Developer</p>
             <p class="text-center">Ingryd | Saionara </p>
@@ -18,6 +18,7 @@ and open the template in the editor.
         </footer>
         <!-- Bootstrap core JavaScript
         ================================================== -->
+        <!-- jQuery -->
 
     </body>
 </html>
