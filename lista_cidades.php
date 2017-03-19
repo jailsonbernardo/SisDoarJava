@@ -57,12 +57,12 @@ include './config/conexao.php';
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $sql = ("select e.id, e.nome as estado, e.uf, p.nome as pais from estado e, pais p where  e.pais = p.id");
+                                    $sql = ("select c.id, c.nome as cidade, e.uf , p.nome as pais from 	cidade c, estado e, pais p  where 	c.estado = e.id and e.pais = p.id  order by e.nome;");
                                     foreach ($con->query($sql) as $row) {
                                         ?>
                                         <tr>
                                             <td><?php echo $row['id']; ?></td>
-                                            <td><?php echo $row['estado']; ?></td>
+                                            <td><?php echo $row['cidade']; ?></td>
                                             <td><?php echo $row['uf']; ?></td>
                                             <td><?php echo $row['pais']; ?></td>
 
